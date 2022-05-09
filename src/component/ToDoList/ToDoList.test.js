@@ -1,8 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import ToDoList from "./ToDoList";
 
-const mockUseSelector = jest.fn();
-
 jest.mock("react-redux", () => ({
   ...jest.requireActual("react-redux"),
   useSelector: () => {
@@ -24,17 +22,17 @@ jest.mock("react-redux", () => ({
       },
     ];
   },
-  useDisptach: () => {
-    return mockUseSelector;
-  },
 }));
 
 describe("Given ToDoList component", () => {
   describe("When it's call with a list of 3 toDos", () => {
-    test("Then it should render a list with 3 list items", () => {
+    test("Then it should render a list with 3 items with 1 heading each", () => {
+      const expectedNumgerofHeadings = 3;
+
       render(<ToDoList />);
       const createdHeadings = screen.getAllByRole("heading");
-      expect(createdHeadings).toHaveLength(3);
+
+      expect(createdHeadings).toHaveLength(expectedNumgerofHeadings);
     });
   });
 });
