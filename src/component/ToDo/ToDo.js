@@ -1,17 +1,25 @@
 import PropTypes from "prop-types";
+import { useDispatch } from "react-redux";
+import { deleteToDoActionCreator } from "../../redux/features/projects/projectsSlice";
 
-const ToDo = ({ toDo: { name, done } }) => {
+const ToDo = ({ toDo: { id, name, done } }) => {
+  const dispatch = useDispatch();
+  const deleteToDo = () => {
+    dispatch(deleteToDoActionCreator(id));
+  };
+
   return (
     <li>
       <h3>{name}</h3>
       {done ? <button>Mark as undone</button> : <button>Mark as done</button>}
-      <button>Borrar</button>
+      <button onClick={deleteToDo}>Delete</button>
     </li>
   );
 };
 
 ToDo.propTypes = {
   toDo: PropTypes.shape({
+    id: PropTypes.number.isRequired,
     name: PropTypes.string.isRequired,
     done: PropTypes.bool.isRequired,
   }).isRequired,

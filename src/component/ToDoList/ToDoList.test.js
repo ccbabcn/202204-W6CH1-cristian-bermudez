@@ -1,4 +1,6 @@
 import { render, screen } from "@testing-library/react";
+import { Provider } from "react-redux";
+import store from "../../store/store";
 import ToDoList from "./ToDoList";
 
 jest.mock("react-redux", () => ({
@@ -29,7 +31,11 @@ describe("Given ToDoList component", () => {
     test("Then it should render a list with 3 items with 1 heading each", () => {
       const expectedNumgerofHeadings = 3;
 
-      render(<ToDoList />);
+      render(
+        <Provider store={store}>
+          <ToDoList />
+        </Provider>
+      );
       const createdHeadings = screen.getAllByRole("heading");
 
       expect(createdHeadings).toHaveLength(expectedNumgerofHeadings);
