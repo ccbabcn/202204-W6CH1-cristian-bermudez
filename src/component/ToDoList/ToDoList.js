@@ -1,7 +1,8 @@
-import { initialtoDos } from "../../data";
+import { useSelector } from "react-redux";
 import ToDo from "../ToDo/ToDo";
 
 const ToDoList = () => {
+  const initialtoDos = useSelector((state) => state.toDos);
   return (
     <ul>
       {initialtoDos.map((toDo) => {
