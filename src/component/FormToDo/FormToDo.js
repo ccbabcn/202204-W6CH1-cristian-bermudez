@@ -45,20 +45,6 @@ const FormToDo = ({ toDoIdtoEdit }) => {
         />
         <button onClick={formSubmit}>create</button>
       </form>
-
-      <form className="formToEdit" onSubmit={formSubmit} autoComplete="off">
-        <label htmlFor="name">{toDoIdtoEdit}New to Do name</label>
-        <input
-          required
-          id="name"
-          autoFocus
-          type={"text"}
-          placeholder={"enter task name"}
-          value={newTaskName}
-          onChange={newTaskNameSetter}
-        />
-        <button onClick={formSubmit}>create</button>
-      </form>
     </>
   );
 };
