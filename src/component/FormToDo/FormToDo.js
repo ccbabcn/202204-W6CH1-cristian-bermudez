@@ -41,7 +41,7 @@ const FormToDo = () => {
         value={newTaskName}
         onChange={newTaskNameSetter}
       />
-      <button>create</button>
+      <button onClick={formSubmit}>create</button>
     </form>
   );
 };
