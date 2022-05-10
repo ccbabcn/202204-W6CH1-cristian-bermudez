@@ -12,9 +12,26 @@ export const ToDoListStyled = styled.div`
       border: 1px solid grey;
       display: flex;
       flex-direction: row;
+      align-items: center;
       gap: 20px;
+      border-radius: 20px;
       button {
+        color: white;
+        text-transform: uppercase;
         width: 115px;
+        height: 70px;
+        border-radius: 20px;
+        background: black;
+      }
+      .done {
+        background: green;
+      }
+      .undone {
+        background: tomato;
+      }
+      h3 {
+        width: 250px;
+        text-overflow: ellipsis;
       }
     }
 
