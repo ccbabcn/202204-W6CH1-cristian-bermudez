@@ -24,9 +24,13 @@ const ToDo = ({ toDo, toDo: { id, name, done }, setToDoIdToEdit }) => {
       <button onClick={toDoToEdit}>Edit</button>
       <h3>{name}</h3>
       {done ? (
-        <button onClick={toggleToDo}>Mark as undone</button>
+        <button className={"done"} onClick={toggleToDo}>
+          Mark as undone
+        </button>
       ) : (
-        <button onClick={toggleToDo}>Mark as done</button>
+        <button className={"undone"} onClick={toggleToDo}>
+          Mark as done
+        </button>
       )}
       <button onClick={deleteToDo}>Delete</button>
     </li>
