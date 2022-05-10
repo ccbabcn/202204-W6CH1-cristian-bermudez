@@ -1,14 +1,13 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import ToDoList from "./component/ToDoList/ToDoList";
-import { loadToDosActionCreator } from "./redux/features/projects/projectsSlice";
-import { initialtoDos } from "./data/data";
+import { loadToDosThunk } from "./redux/thunks/projectsThunk";
 
 function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(loadToDosActionCreator(initialtoDos));
+    dispatch(loadToDosThunk());
   }, [dispatch]);
 
   return (
