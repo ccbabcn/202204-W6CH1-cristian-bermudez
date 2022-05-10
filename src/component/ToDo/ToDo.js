@@ -1,14 +1,12 @@
 import PropTypes from "prop-types";
 import { useDispatch } from "react-redux";
-import {
-  deleteToDoActionCreator,
-  toggleToDoActionCreator,
-} from "../../redux/features/projects/projectsSlice";
+import { toggleToDoActionCreator } from "../../redux/features/projects/projectsSlice";
+import { delteToDoThunk } from "../../redux/thunks/projectsThunk";
 
 const ToDo = ({ toDo: { id, name, done }, setToDoIdToEdit }) => {
   const dispatch = useDispatch();
   const deleteToDo = () => {
-    dispatch(deleteToDoActionCreator(id));
+    dispatch(delteToDoThunk(id));
   };
 
   const toggleToDo = () => {
