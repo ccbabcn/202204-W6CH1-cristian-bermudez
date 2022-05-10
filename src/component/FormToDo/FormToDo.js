@@ -11,6 +11,7 @@ const FormToDo = () => {
     if (newTaskName.trim() === "") return;
 
     addToDO();
+    setNewTaskName("");
   };
 
   const dispatch = useDispatch();
