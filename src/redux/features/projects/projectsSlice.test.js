@@ -1,10 +1,11 @@
 import toDosReducer, {
   deleteToDoActionCreator,
   loadToDosActionCreator,
+  createToDoActionCreator,
 } from "./projectsSlice";
 
 describe("Given a toDosReducer", () => {
-  describe("When its called with an array of 2 toDos and an undefined type of action", () => {
+  describe("When its called with an list of 2 toDos and an undefined type of action", () => {
     test("Then it should return the same list of toDos", () => {
       const actionType = { type: "undefinedType" };
       const listOfTodos = [
@@ -26,8 +27,8 @@ describe("Given a toDosReducer", () => {
     });
   });
 
-  describe("When its called with an array of 2 toDos, a loadToDosActionCreator and the initial state it's an empty array", () => {
-    test("Then it should return a new array with the list of 2 toDos", () => {
+  describe("When its called with an list of 2 toDos, a loadToDosActionCreator and the initial state it's an empty array", () => {
+    test("Then it should return a new list with the list of 2 toDos", () => {
       const initialListofTodos = [];
 
       const listOfTodos = [
@@ -51,8 +52,8 @@ describe("Given a toDosReducer", () => {
     });
   });
 
-  describe("When its called with an array of 2 toDos a deleteToDoActionCreator and the id of the last toDo", () => {
-    test("Then it should return a new array without the last toDo", () => {
+  describe("When its called with an list of 2 toDos a deleteToDoActionCreator and the id of the last toDo", () => {
+    test("Then it should return a new list without the last toDo", () => {
       const initialListofTodos = [
         {
           id: 0,
@@ -79,6 +80,37 @@ describe("Given a toDosReducer", () => {
       const filteredListofToDos = toDosReducer(initialListofTodos, actionLoad);
 
       expect(filteredListofToDos).toEqual(expedtedListOfTodos);
+    });
+  });
+
+  describe("When its called with an list of 2 toDos a createToDoActionCreator and a new toDo object", () => {
+    test("Then it should return a new list containing the 3 toDos", () => {
+      const initialListofTodos = [
+        {
+          id: 0,
+          name: "Testear",
+          done: true,
+        },
+        {
+          id: 1,
+          name: "Dormir",
+          done: false,
+        },
+      ];
+
+      const toDotoAdd = [
+        {
+          id: 2,
+          name: "Codear",
+          done: true,
+        },
+      ];
+
+      const actionAdd = createToDoActionCreator(toDotoAdd);
+
+      const addedListofToDos = toDosReducer(initialListofTodos, actionAdd);
+
+      expect(addedListofToDos).toContain(toDotoAdd);
     });
   });
 });

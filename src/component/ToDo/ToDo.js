@@ -19,7 +19,6 @@ const ToDo = ({ toDo: { id, name, done } }) => {
 
 ToDo.propTypes = {
   toDo: PropTypes.shape({
-    id: PropTypes.number.isRequired,
     name: PropTypes.string.isRequired,
     done: PropTypes.bool.isRequired,
   }).isRequired,
