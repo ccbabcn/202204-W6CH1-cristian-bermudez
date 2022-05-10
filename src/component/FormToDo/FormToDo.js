@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { createToDoActionCreator } from "../../redux/features/projects/projectsSlice";
 
-const FormToDo = () => {
+const FormToDo = ({ toDoIdtoEdit }) => {
   const actualTodos = useSelector((state) => state.toDos);
 
   const formSubmit = (event) => {
@@ -31,19 +31,21 @@ const FormToDo = () => {
   };
 
   return (
-    <form onSubmit={formSubmit} autoComplete="off">
-      <label htmlFor="name">New to Do name</label>
-      <input
-        required
-        id="name"
-        autoFocus
-        type={"text"}
-        placeholder={"enter task name"}
-        value={newTaskName}
-        onChange={newTaskNameSetter}
-      />
-      <button onClick={formSubmit}>create</button>
-    </form>
+    <>
+      <form className="formTodo" onSubmit={formSubmit} autoComplete="off">
+        <label htmlFor="name">{toDoIdtoEdit}New to Do name</label>
+        <input
+          required
+          id="name"
+          autoFocus
+          type={"text"}
+          placeholder={"enter task name"}
+          value={newTaskName}
+          onChange={newTaskNameSetter}
+        />
+        <button onClick={formSubmit}>create</button>
+      </form>
+    </>
   );
 };
 
