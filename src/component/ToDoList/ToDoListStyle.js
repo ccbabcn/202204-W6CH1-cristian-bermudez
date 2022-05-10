@@ -22,7 +22,12 @@ export const ToDoListStyled = styled.div`
         height: 70px;
         border-radius: 20px;
         background: black;
+        cursor: pointer;
+        :hover {
+          filter: opacity(0.85);
+        }
       }
+
       .done {
         background: green;
       }
