@@ -8,7 +8,6 @@ const FormToDo = ({ toDoIdtoEdit }) => {
   const formSubmit = (event) => {
     event.preventDefault();
     if (newTaskName.trim() === "") return;
-
     addToDO();
     setNewTaskName("");
   };
