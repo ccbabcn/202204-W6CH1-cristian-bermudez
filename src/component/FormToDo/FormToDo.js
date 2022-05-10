@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-
-import { createToDoActionCreator } from "../../redux/features/projects/projectsSlice";
+import { createToDoThunk } from "../../redux/thunks/projectsThunk";
 
 const FormToDo = ({ toDoIdtoEdit }) => {
   const actualTodos = useSelector((state) => state.toDos);
@@ -16,7 +15,7 @@ const FormToDo = ({ toDoIdtoEdit }) => {
 
   const dispatch = useDispatch();
   const addToDO = () => {
-    dispatch(createToDoActionCreator(newTodo));
+    dispatch(createToDoThunk(newTodo));
   };
 
   const [newTaskName, setNewTaskName] = useState("");
