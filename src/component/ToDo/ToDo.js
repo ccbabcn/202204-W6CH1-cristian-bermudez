@@ -2,14 +2,19 @@ import PropTypes from "prop-types";
 import { useDispatch } from "react-redux";
 import { deleteToDoActionCreator } from "../../redux/features/projects/projectsSlice";
 
-const ToDo = ({ toDo: { id, name, done } }) => {
+const ToDo = ({ toDo: { id, name, done }, setToDoIdToEdit }) => {
   const dispatch = useDispatch();
   const deleteToDo = () => {
     dispatch(deleteToDoActionCreator(id));
   };
 
+  const toDoToEdit = (event) => {
+    setToDoIdToEdit(id);
+  };
+
   return (
-    <li>
+    <li className="toDo">
+      <button onClick={toDoToEdit}>Edit</button>
       <h3>{name}</h3>
       {done ? <button>Mark as undone</button> : <button>Mark as done</button>}
       <button onClick={deleteToDo}>Delete</button>
