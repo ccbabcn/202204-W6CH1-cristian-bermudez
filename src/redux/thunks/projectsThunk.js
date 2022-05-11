@@ -31,9 +31,12 @@ export const delteToDoThunk = (toDoId) => async (dispatch) => {
 
 export const createToDoThunk = (toDo) => async (dispatch) => {
   try {
-    const { status } = await axios.post(process.env.REACT_APP_API_URL, toDo);
+    const { status, data } = await axios.post(process.env.REACT_APP_API_URL, {
+      name: toDo.name,
+      done: toDo.done,
+    });
     if (status === 201) {
-      dispatch(createToDoActionCreator(toDo));
+      dispatch(createToDoActionCreator(data));
     }
   } catch {}
 };

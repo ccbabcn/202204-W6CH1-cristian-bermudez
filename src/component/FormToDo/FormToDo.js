@@ -1,11 +1,9 @@
 import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { createToDoThunk } from "../../redux/thunks/projectsThunk";
 import { FormToDoStyle } from "./FormToDoStyle";
 
 const FormToDo = ({ toDoIdtoEdit }) => {
-  const actualTodos = useSelector((state) => state.toDos);
-
   const formSubmit = (event) => {
     event.preventDefault();
     if (newTaskName.trim() === "") return;
@@ -21,7 +19,6 @@ const FormToDo = ({ toDoIdtoEdit }) => {
 
   const [newTaskName, setNewTaskName] = useState("");
   const newTodo = {
-    id: newTaskName[0] + actualTodos.length,
     name: newTaskName,
     done: false,
   };
