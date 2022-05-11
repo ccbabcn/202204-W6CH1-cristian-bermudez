@@ -43,7 +43,8 @@
     ]
   },
   "devDependencies": {
-    "husky": "^7.0.0"
+    "husky": "^7.0.0",
+    "msw": "^0.39.2"
   },
   "jest": {
     "collectCoverageFrom": [
