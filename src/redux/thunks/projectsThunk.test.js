@@ -43,8 +43,10 @@ describe("Given a createToDoThunk", () => {
   describe("When its invoked", () => {
     test("Then it should disptach createToDoActionCreator", async () => {
       const thunk = createToDoThunk();
+      const mockObject = {};
+
       const dispatch = jest.fn();
-      const expectedActionCreator = createToDoActionCreator();
+      const expectedActionCreator = createToDoActionCreator(mockObject);
 
       await thunk(dispatch);
 
