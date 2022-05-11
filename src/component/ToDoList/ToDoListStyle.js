@@ -45,10 +45,4 @@ export const ToDoListStyled = styled.div`
       padding: 0;
     }
   }
-
-  .formTodo {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
 `;
